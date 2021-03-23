@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {actionCreator} from '../store';
+import {remove} from '../store';
 
 function Detail({todo, onButtonClick, history}) {
     const onDeleteBtnClick = () => {
@@ -24,7 +24,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
     const {match:{params:{id}}} = ownProps;
     return {
-        onButtonClick: () => dispatch(actionCreator.deleteTodo(parseInt(id, 10)))
+        onButtonClick: () => dispatch(remove(parseInt(id, 10)))
     }
 }
 
